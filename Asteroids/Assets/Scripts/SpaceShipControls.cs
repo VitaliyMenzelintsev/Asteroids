@@ -1,23 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpaceShipControls : MonoBehaviour
 {
     public Bullet bullet;
-    private Rigidbody2D starshipRigidbody;
-    
-    // Характеристики корабля
-    private float verticalInput;           // thrustInput
-    private float horizontalInput;         // turnInput
-    private float velocity = 4;                 // thrust
-    private float angulaVelocity = 3;           // turnThrust
+    private Rigidbody2D shipRigidbody;
+    public BorderCrossing borderCrossing;
 
-    // Размеры экрана
-    private float screenTopBorder = 8.6f;
-    private float screenBottomBorder = -8.6f;
-    private float screenRightBorder = 14.5f;
-    private float screenLeftBorder = -14.5f;
+    // Характеристики корабля
+    private float verticalInput;            // thrustInput
+    private float horizontalInput;          // turnInput
+    private float velocity = 4;             // thrust
+    private float angulaVelocity = 3;       // turnThrust
 
     // Стрельба
     public Transform[] projectileSpawnPoint;
@@ -27,7 +20,8 @@ public class SpaceShipControls : MonoBehaviour
 
     private void Start()
     {
-        starshipRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        shipRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        borderCrossing = new BorderCrossing();
     }
 
     private void Update()
@@ -37,17 +31,7 @@ public class SpaceShipControls : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         // Вылет за пределы экрана
-        Vector2 newPosition = transform.position;
-
-        if (transform.position.y > screenTopBorder) newPosition.y = screenBottomBorder;
-
-        if (transform.position.y < screenBottomBorder) newPosition.y = screenTopBorder;
-
-        if (transform.position.x > screenRightBorder) newPosition.x = screenLeftBorder;
-
-        if (transform.position.x < screenLeftBorder) newPosition.x = screenRightBorder;
-
-        transform.position = newPosition;
+        transform.position = borderCrossing.UpdateBorder(transform.position);
 
         // Стрельба
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -58,7 +42,6 @@ public class SpaceShipControls : MonoBehaviour
 
     private void Shoot()
     {
-
         for (int i = 0; i < projectileSpawnPoint.Length; i++)
         {
             nextShotTime = Time.time + betweenShots;
@@ -69,7 +52,7 @@ public class SpaceShipControls : MonoBehaviour
     private void FixedUpdate()
     {
         // Движение корабля
-        starshipRigidbody.AddRelativeForce(Vector2.up * verticalInput * velocity);
-        starshipRigidbody.AddTorque(-horizontalInput * angulaVelocity);
+        shipRigidbody.AddRelativeForce(Vector2.up * verticalInput * velocity);
+        shipRigidbody.AddTorque(-horizontalInput * angulaVelocity);
     }
 }
