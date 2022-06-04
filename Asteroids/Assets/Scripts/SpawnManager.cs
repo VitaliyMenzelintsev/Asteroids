@@ -4,30 +4,58 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public List<GameObject> asteroids;
-    public List<GameObject> asteroidsMedium;
-    public List<GameObject> asteroidShards;
+    public List<GameObject> largeAsteroids;
+    public List<GameObject> mediumAsteroids;
+    public List<GameObject> smallAsteroids;
 
     private float spawnRate = 2.0f;
     public bool isGameActive;
 
     private float xRange = 14f;
-    private float yRange = 9;
-    
+    private float yRange = 9f;
+
     public void Start()
     {
         isGameActive = true;
-        StartCoroutine(SpawnAsteroids()); 
+        StartCoroutine(SpawnAsteroids());
     }
     IEnumerator SpawnAsteroids()
     {
         while (isGameActive)
         {
-            yield return new WaitForSeconds(spawnRate);   // yield возвращает значение итерации через указанное время
-            int index = Random.Range(0, asteroids.Count); // индекс от 0 до длинны листа
-            Instantiate(asteroids[index]);                // спавн из листа Asteroids
+            yield return new WaitForSeconds(spawnRate);
+            int index = Random.Range(0, largeAsteroids.Count);
+            GameObject asteroidLarge = Instantiate(largeAsteroids[index], SpawnPosition(), transform.rotation);
+            asteroidLarge.GetComponent<AsteroidMovement>().asteroidCondition = 3;
         }
     }
+
+    public void SpawnShards(int asteroidCondition, Vector2 positionToSpawn)
+    {
+        if (asteroidCondition == 3)
+        {
+            for (int i = 0; i < asteroidCondition - 1; i++)
+            {
+                int index = Random.Range(0, mediumAsteroids.Count);
+                GameObject asteroidMedium = Instantiate(mediumAsteroids[index], positionToSpawn, transform.rotation);
+                asteroidMedium.GetComponent<AsteroidMovement>().asteroidCondition = 2;
+            }
+        }
+        else if (asteroidCondition == 2)
+        {
+            for (int i = 0; i < asteroidCondition; i++)
+            {
+                int index = Random.Range(0, smallAsteroids.Count);
+                GameObject asteroidSmall = Instantiate(smallAsteroids[index], positionToSpawn, transform.rotation);
+                asteroidSmall.GetComponent<AsteroidMovement>().asteroidCondition = 1;
+            }
+        }
+        else if (asteroidCondition == 1)
+        {
+            return;
+        }
+    }
+
     public Vector2 SpawnPosition()
     {
         int spawnPositionIndex = Random.Range(0, 4);
