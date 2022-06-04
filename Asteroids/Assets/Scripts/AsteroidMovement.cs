@@ -14,7 +14,7 @@ public class AsteroidMovement : EnemyMovement
     public override void Start()
     {
         base.Start();
-  
+
         flyightDirection = new Vector2(Random.Range(-xRange, xRange), Random.Range(-yRange, yRange));
         borderCrossing = new BorderCrossing();
     }

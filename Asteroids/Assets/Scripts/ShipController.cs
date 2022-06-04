@@ -8,11 +8,10 @@ public class ShipController : MonoBehaviour
     public Transform[] projectileSpawnPoint;
 
     // Характеристики корабля
-    private float verticalInput;            // thrustInput
-    private float horizontalInput;          // turnInput
-    private float velocity = 4;             // thrust
-    private float angulaVelocity = 3;       // turnThrust
-
+    private float verticalInput;              // thrustInput
+    private float horizontalInput;            // turnInput
+    private float velocity = 120f;             // thrust
+    private float angularVelocity = 200;      // turnThrust
 
     private void Start()
     {
@@ -34,6 +33,11 @@ public class ShipController : MonoBehaviour
         {
             Shoot();
         }
+
+        // Движение корабля
+        shipRigidbody.AddRelativeForce(Vector2.up * velocity * verticalInput * Time.deltaTime);
+        //transform.Translate(Vector2.up * velocity * verticalInput * Time.deltaTime);
+        transform.Rotate(Vector3.forward * angularVelocity * -horizontalInput * Time.deltaTime);
     }
 
     private void Shoot()
@@ -42,12 +46,5 @@ public class ShipController : MonoBehaviour
         {
             Bullet newBullet = Instantiate(bullet, projectileSpawnPoint[i].position, projectileSpawnPoint[i].rotation);
         }
-    }
-
-    private void FixedUpdate()
-    {
-        // Движение корабля
-        shipRigidbody.AddRelativeForce(Vector2.up * verticalInput * velocity);
-        shipRigidbody.AddTorque(-horizontalInput * angulaVelocity);
     }
 }
