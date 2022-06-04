@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3775329418179874059}
   - component: {fileID: 6060316740716436400}
   - component: {fileID: 512091527109265894}
+  - component: {fileID: 293186192354188005}
   m_Layer: 0
   m_Name: AsterSmall2
   m_TagString: Untagged
@@ -138,3 +139,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &293186192354188005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172733410043596393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cf51666b2e10b4499ad80e847cdfd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

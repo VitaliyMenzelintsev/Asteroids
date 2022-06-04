@@ -15,10 +15,4 @@ public class Bullet : MonoBehaviour
         float moveDistance = speed * Time.deltaTime;
         transform.Translate(Vector2.up * moveDistance);
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Destroy(other.gameObject);
-        Destroy(gameObject);
-    }
 }

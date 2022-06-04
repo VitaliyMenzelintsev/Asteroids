@@ -13,6 +13,8 @@ public class ShipController : MonoBehaviour
     private float velocity = 120f;             // thrust
     private float angularVelocity = 200;      // turnThrust
 
+    private float deathForce = 3f;
+
     private void Start()
     {
         shipRigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -29,14 +31,10 @@ public class ShipController : MonoBehaviour
         transform.position = borderCrossing.UpdateBorder(transform.position);
 
         // Стрельба
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Shoot();
-        }
-
+        if (Input.GetKeyDown(KeyCode.Mouse0)) Shoot();
+     
         // Движение корабля
         shipRigidbody.AddRelativeForce(Vector2.up * velocity * verticalInput * Time.deltaTime);
-        //transform.Translate(Vector2.up * velocity * verticalInput * Time.deltaTime);
         transform.Rotate(Vector3.forward * angularVelocity * -horizontalInput * Time.deltaTime);
     }
 
@@ -45,6 +43,14 @@ public class ShipController : MonoBehaviour
         for (int i = 0; i < projectileSpawnPoint.Length; i++)
         {
             Bullet newBullet = Instantiate(bullet, projectileSpawnPoint[i].position, projectileSpawnPoint[i].rotation);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.relativeVelocity.magnitude > deathForce)  // если сложенные 2 скорости коллайдеров больше силы смерти
+        {
+            Destroy(gameObject);
         }
     }
 }

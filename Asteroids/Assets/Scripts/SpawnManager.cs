@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public List<GameObject> asteroids;
+    public List<GameObject> asteroidsMedium;
     public List<GameObject> asteroidShards;
+
     private float spawnRate = 2.0f;
     public bool isGameActive;
 
@@ -15,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     public void Start()
     {
         isGameActive = true;
-        StartCoroutine(SpawnAsteroids()); // запуск итераторa
+        StartCoroutine(SpawnAsteroids()); 
     }
     IEnumerator SpawnAsteroids()
     {
