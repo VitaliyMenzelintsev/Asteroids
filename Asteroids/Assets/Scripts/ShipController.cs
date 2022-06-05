@@ -7,9 +7,9 @@ public class ShipController : MonoBehaviour
 
     // Стрельба
     [SerializeField] 
-    private float rayDistance = 50f;
+    private float rayDistance = 25f;
     public LineRenderer lineRenderer;
-    private Transform m_transform;   // ????
+    public Transform laserPosition;   // ????
 
     public Bullet bullet;
     public Transform firePoint;
@@ -24,7 +24,7 @@ public class ShipController : MonoBehaviour
 
     private void Start()
     {
-        m_transform = GetComponent<Transform>();   // лазер
+        /*laserPosition = GetComponent<Transform>(); */  // лазер
         shipRigidbody = gameObject.GetComponent<Rigidbody2D>();
         borderCrossing = new BorderCrossing();
     }
@@ -41,7 +41,7 @@ public class ShipController : MonoBehaviour
         // Стрельба
         if (Input.GetKeyDown(KeyCode.Mouse0)) Shoot();
         // Лазер
-        if (Input.GetKeyDown(KeyCode.Mouse1)) Laser();
+        if (Input.GetKey(KeyCode.Mouse1)) Laser();
 
         // Движение корабля
         shipRigidbody.AddRelativeForce(Vector2.up * velocity * verticalInput * Time.deltaTime);
@@ -56,15 +56,8 @@ public class ShipController : MonoBehaviour
 
     private void Laser()           // Стрельба лазером
     {
-        if(Physics2D.Raycast(m_transform.position, transform.forward ))    // заменить на RaycastAll скорее всего
-        {
-            RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, transform.right);
-            Draw2DRay(firePoint.position, _hit.point);
-        }
-        else
-        {
-            Draw2DRay(firePoint.position, firePoint.transform.forward * rayDistance);
-        }
+        RaycastHit2D[] raycastHit = Physics2D.RaycastAll (firePoint.position, transform.up * rayDistance);
+        Draw2DRay(firePoint.position, transform.up * rayDistance);
     }
 
     private void Draw2DRay(Vector2 startPosition, Vector2 endPosition)   // Рисование лазера

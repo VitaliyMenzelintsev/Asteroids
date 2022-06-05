@@ -64,7 +64,7 @@ public class SpawnManager : MonoBehaviour
             for (int i = 0; i < asteroidCondition - 1; i++)
             {
                 int index = Random.Range(0, mediumAsteroids.Count);
-                GameObject asteroidMedium = Instantiate(mediumAsteroids[index], positionToSpawn, transform.rotation);
+                /*GameObject asteroidMedium = */Instantiate(mediumAsteroids[index], positionToSpawn, transform.rotation);
                 //asteroidMedium.GetComponent<AsteroidMovement>().asteroidCondition = 2;
             }
             asteroidsCount--;
@@ -74,7 +74,7 @@ public class SpawnManager : MonoBehaviour
             for (int i = 0; i < asteroidCondition; i++)
             {
                 int index = Random.Range(0, smallAsteroids.Count);
-                GameObject asteroidSmall = Instantiate(smallAsteroids[index], positionToSpawn, transform.rotation);
+                /*GameObject asteroidSmall = */Instantiate(smallAsteroids[index], positionToSpawn, transform.rotation);
                 //asteroidSmall.GetComponent<AsteroidMovement>().asteroidCondition = 1;
             }
         }
