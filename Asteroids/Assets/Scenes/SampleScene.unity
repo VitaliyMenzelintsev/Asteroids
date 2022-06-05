@@ -236,37 +236,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2006209923}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1683566684
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1683566685}
-  m_Layer: 0
-  m_Name: FirePointRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1683566685
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683566684}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.185, y: 0.185, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2006209923}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756825588
@@ -279,7 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1756825589}
   m_Layer: 0
-  m_Name: FirePointLeft
+  m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756825588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.185, y: 0.185, z: 0}
+  m_LocalPosition: {x: -0.0003, y: 0.2393, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,18 +298,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e002fe3cb63eccf45b2970373ec05a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroids:
+  largeAsteroids:
   - {fileID: 3955418798240587005, guid: 18bb600265b4a4a4fa29f69b9f5b8404, type: 3}
   - {fileID: 6542101368399430838, guid: 5c3659959ebb30a489d7eef3009f8afc, type: 3}
   - {fileID: 122214560388886015, guid: 0cc97290e5be8a24a95be78aef2fc1a6, type: 3}
   - {fileID: 1416072628507055035, guid: 0d18f1a7832f6a44fa77efb30bde703e, type: 3}
-  asteroidsMedium:
-  - {fileID: 6747026704579016348, guid: ae4d463454dcd3f4f8546cef1366ff03, type: 3}
+  mediumAsteroids:
+  - {fileID: 3592861495988656133, guid: a605a9cb8e6a23444baef3434392fdb5, type: 3}
   - {fileID: 3592861495988656133, guid: a605a9cb8e6a23444baef3434392fdb5, type: 3}
   - {fileID: 6554404179560890419, guid: 10eda568a7de7e04693212985f98844e, type: 3}
   - {fileID: 7979792204202706108, guid: a4f6c7d73f99033429f262bcba1bdeb8, type: 3}
   - {fileID: 1082700227081861820, guid: 65ee5b4a801d6d44eb112962bd3246e2, type: 3}
-  asteroidShards:
+  smallAsteroids:
   - {fileID: 1273717868519207366, guid: 0b41583a19866d64b9483e371372b152, type: 3}
   - {fileID: 172733410043596393, guid: df633265b44cbf44eae676819a0f1900, type: 3}
   - {fileID: 1829189280640820382, guid: 97fc4a6e44a6aed4a9f7e4f0a4e48bc3, type: 3}
@@ -396,9 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6919974907623972632, guid: d2d3be4646aa0eb44899bca2418bc96b, type: 3}
-  projectileSpawnPoint:
-  - {fileID: 1756825589}
-  - {fileID: 1683566685}
+  projectileSpawnPoint: {fileID: 1756825589}
 --- !u!4 &2006209923
 Transform:
   m_ObjectHideFlags: 0
@@ -413,7 +380,6 @@ Transform:
   m_Children:
   - {fileID: 7778462996298490880}
   - {fileID: 1756825589}
-  - {fileID: 1683566685}
   - {fileID: 1531442041}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -436,7 +402,7 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.35088855, y: 0.1794363}
   - {x: -0.06578961, y: 0.024548568}
-  - {x: -0.000645048, y: 0.26945233}
+  - {x: -0.000031376258, y: 0.22708973}
   - {x: 0.08631924, y: 0.024570724}
   - {x: 0.3467812, y: 0.18011732}
   - {x: 0.3629601, y: -0.07681962}
