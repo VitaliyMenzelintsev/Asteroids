@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3341624362661117164}
   - component: {fileID: 4493921750602859566}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flame (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5940111381534646944}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2793996648417690076}
   - component: {fileID: 2610781328752718276}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7445227426495194143}
   - component: {fileID: 6322438415109859903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ship1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3890743449878131405}
   - component: {fileID: 6222854634126075605}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RedLines1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4287851997941182045}
   - component: {fileID: 4141855661043160381}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RedLines2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4287632630430824725}
   - component: {fileID: 4141761610568770095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ship1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4887367668991970341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 481874276882037168}
   - component: {fileID: 5365027363380401159}
   - component: {fileID: 3424941268805775421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: UFO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -685,7 +685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2957047244461313910}
   - component: {fileID: 7613512232896410658}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flame (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8121495104338479370}
   - component: {fileID: 8236975760923267632}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

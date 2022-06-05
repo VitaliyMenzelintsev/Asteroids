@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1947891166154513261}
   - component: {fileID: 2958798931508179943}
   - component: {fileID: 4411513925954139598}
-  - component: {fileID: 1730569975147096512}
   - component: {fileID: -7879233858142897326}
+  - component: {fileID: -4232430968652904431}
   m_Layer: 0
   m_Name: AsterMed2
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,20 +103,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.048300266}
   serializedVersion: 2
   m_Radius: 0.5788996
---- !u!114 &1730569975147096512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3592861495988656133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbb01bf366608bf468ced2a1045187c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  turnSpeed: 0
 --- !u!50 &-7879233858142897326
 Rigidbody2D:
   serializedVersion: 4
@@ -138,3 +124,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4232430968652904431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3592861495988656133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9e971208d8e8f4c87ef21006acc0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnManager: {fileID: 0}
+  speed: 0
+  turnSpeed: 0
+  maxSpeed: 0.5
+  maxTurnSpeed: 100
+  asteroidCondition: 3

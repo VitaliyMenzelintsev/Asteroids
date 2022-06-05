@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidMovement : MonoBehaviour
+public class AsteroidOld : MonoBehaviour
 {
     private BorderCrossing borderCrossing;
     private SpawnManager spawnManager;
@@ -18,9 +18,14 @@ public class AsteroidMovement : MonoBehaviour
     private float maxSpeed = 0.5f;
     private float maxTurnSpeed = 100f;
 
-    [HideInInspector]
-    public int asteroidCondition; //3 large, 2 medium, 1 small
-    
+    // [HideInInspector]
+    public int asteroidCondition; // состояние задано в инспекторе
+
+    private void Awake()
+    {
+        asteroidCondition = 3;
+    }
+
     public void Start()
     {
         speed = Random.Range(0.1f, maxSpeed) * 3 / asteroidCondition;   // переделать прибавку к скорости после раскола
@@ -32,7 +37,7 @@ public class AsteroidMovement : MonoBehaviour
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
 
-    private void Update()
+    public void Update()
     {
         // Перемещение и вращение
         transform.Translate(flightDirection * speed * Time.deltaTime, Space.World);

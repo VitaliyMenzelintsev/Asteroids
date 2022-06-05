@@ -11,7 +11,7 @@ public class ShipController : MonoBehaviour
     private float verticalInput;              // thrustInput
     private float horizontalInput;            // turnInput
     private float velocity = 120f;             // thrust
-    private float angularVelocity = 200;      // turnThrust
+    private float angularVelocity = 300;      // turnThrust
 
     private float deathForce = 3f;
 
@@ -43,11 +43,12 @@ public class ShipController : MonoBehaviour
         Bullet newBullet = Instantiate(bullet, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (collision.relativeVelocity.magnitude > deathForce)  // если сложенные 2 скорости коллайдеров больше силы смерти
+        if (other.relativeVelocity.magnitude > deathForce)  // если сложенные 2 скорости коллайдеров больше силы смерти
         {
             Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
