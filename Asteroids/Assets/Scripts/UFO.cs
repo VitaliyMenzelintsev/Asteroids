@@ -12,7 +12,7 @@ public class UFO : EnemyBase
 
     public override void Start()
     {
-        speed = 5f;
+        speed = 4f;
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;

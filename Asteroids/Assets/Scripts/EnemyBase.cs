@@ -17,7 +17,7 @@ public abstract class EnemyBase : MonoBehaviour
     // Скоростные характеристики. 
     public float speed;
     public float turnSpeed;
-    public float maxSpeed = 0.5f;
+    public float maxSpeed = 0.4f;
     public float maxTurnSpeed = 100f;
 
     public int asteroidCondition = 3;

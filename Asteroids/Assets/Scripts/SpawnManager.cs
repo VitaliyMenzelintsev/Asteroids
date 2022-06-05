@@ -25,6 +25,11 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnAsteroids());
         StartCoroutine(SpawnUFOs());
     }
+
+    private void Update()
+    {
+        // добавить старт корутины при условии для НЛО и Больших Астероидов
+    }
     IEnumerator SpawnAsteroids()
     {
         while (isGameActive)
@@ -32,10 +37,9 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(spawnRate);
             int index = Random.Range(0, largeAsteroids.Count);
             // добавить иф, который отслеживает счётчик 
-            if(asteroidsCount <= 4)
+            if (asteroidsCount <= 4)
             {
-                /*GameObject asteroidLarge = */Instantiate(largeAsteroids[index], SpawnPosition(), transform.rotation);
-                //asteroidLarge.GetComponent<AsteroidMovement>().asteroidCondition = 3;
+                Instantiate(largeAsteroids[index], SpawnPosition(), transform.rotation);
                 asteroidsCount++;
             }
         }

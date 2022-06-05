@@ -216,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1531442041}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePointLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1756825589}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756825588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0003, y: 0.425, z: 0}
+  m_LocalPosition: {x: -0.0003, y: 0.238, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -316,7 +316,7 @@ MonoBehaviour:
   - {fileID: 8266873878386540212, guid: 04d0e694d442538469994e2367f412b4, type: 3}
   - {fileID: 1187051454626278293, guid: 7e73d8cc1e09492498f76df02fb52fbf, type: 3}
   - {fileID: 72295631480350893, guid: 73d0578dde8635c4db633cbe78f8af97, type: 3}
-  UFO: {fileID: 4795238804499314179, guid: 52db2ce88b4eb7241ae8887dca6f3d01, type: 3}
+  UFO: {fileID: 3460865608129079929, guid: 52db2ce88b4eb7241ae8887dca6f3d01, type: 3}
   isGameActive: 0
 --- !u!4 &1865527944
 Transform:
@@ -346,7 +346,8 @@ GameObject:
   - component: {fileID: 2006209924}
   - component: {fileID: 2006209925}
   - component: {fileID: 2006209926}
-  m_Layer: 0
+  - component: {fileID: 2006209927}
+  m_Layer: 3
   m_Name: Spaceship
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -365,8 +366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911e5e949cdffb242a180c6b2cd86f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayDistance: 50
+  lineRenderer: {fileID: 2006209927}
   bullet: {fileID: 6919974907623972632, guid: d2d3be4646aa0eb44899bca2418bc96b, type: 3}
-  projectileSpawnPoint: {fileID: 1756825589}
+  firePoint: {fileID: 1756825589}
 --- !u!4 &2006209923
 Transform:
   m_ObjectHideFlags: 0
@@ -402,13 +405,13 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.35088855, y: 0.1794363}
-  - {x: -0.06578961, y: 0.024548568}
+  - {x: -0.093114614, y: 0.031683}
   - {x: -0.000031376258, y: 0.22708973}
-  - {x: 0.08631924, y: 0.024570724}
+  - {x: 0.09347044, y: 0.031721927}
   - {x: 0.3467812, y: 0.18011732}
-  - {x: 0.3629601, y: -0.07681962}
+  - {x: 0.3467913, y: -0.08374912}
   - {x: -0.0015889406, y: -0.25653994}
-  - {x: -0.36467758, y: -0.083071165}
+  - {x: -0.35197353, y: -0.090000674}
   - {x: -0.3508886, y: 0.1794363}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -487,6 +490,105 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!120 &2006209927
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006209920}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
 --- !u!212 &7572541583731737944
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -653,7 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7778462996298490880}
   - component: {fileID: 7572545062742412582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ship2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7778777435074100256}
   - component: {fileID: 7572703109910539556}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ship2-flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7777116648469671458}
   - component: {fileID: 7572541583731737944}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ship2-lines
   m_TagString: Untagged
   m_Icon: {fileID: 0}

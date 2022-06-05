@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4411513925954139598}
   - component: {fileID: -7879233858142897326}
   - component: {fileID: -4232430968652904431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AsterMed2
   m_TagString: Asteroid
   m_Icon: {fileID: 0}

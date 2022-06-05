@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5842906612146396952}
   - component: {fileID: 3566948923442874689}
   - component: {fileID: 2194850149301891642}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AsterBig4
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -115,6 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb01bf366608bf468ced2a1045187c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnManager: {fileID: 0}
+  speed: 0
+  turnSpeed: 0
+  maxSpeed: 0.5
+  maxTurnSpeed: 100
   asteroidCondition: 3
 --- !u!50 &2194850149301891642
 Rigidbody2D:
