@@ -6,10 +6,10 @@ public class ShipController : MonoBehaviour
     private BorderCrossing borderCrossing;
 
     // Стрельба
-    [SerializeField] 
+    [SerializeField]
     private float rayDistance = 25f;
     public LineRenderer lineRenderer;
-    public Transform laserPosition;   // ????
+    //public Transform laserPosition;   // ????
 
     public Bullet bullet;
     public Transform firePoint;
@@ -38,14 +38,17 @@ public class ShipController : MonoBehaviour
         // Вылет за пределы экрана
         transform.position = borderCrossing.UpdateBorder(transform.position);
 
+        // Движение корабля
+        shipRigidbody.AddRelativeForce(Vector2.up * velocity * verticalInput * Time.deltaTime);
+        transform.Rotate(Vector3.forward * angularVelocity * -horizontalInput * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
         // Стрельба
         if (Input.GetKeyDown(KeyCode.Mouse0)) Shoot();
         // Лазер
         if (Input.GetKey(KeyCode.Mouse1)) Laser();
-
-        // Движение корабля
-        shipRigidbody.AddRelativeForce(Vector2.up * velocity * verticalInput * Time.deltaTime);
-        transform.Rotate(Vector3.forward * angularVelocity * -horizontalInput * Time.deltaTime);
     }
 
     private void Shoot()
@@ -54,13 +57,18 @@ public class ShipController : MonoBehaviour
         Bullet newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
     }
 
-    private void Laser()           // Стрельба лазером
+    private void Laser()      
     {
-        RaycastHit2D[] raycastHit = Physics2D.RaycastAll (firePoint.position, transform.up * rayDistance);
-        Draw2DRay(firePoint.position, transform.up * rayDistance);
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(firePoint.position, transform.up, rayDistance); // создал поле, где хранятся данные об обьекте столкновения
+
+        Draw2DRay(firePoint.position, transform.up * rayDistance);               // нарисовал луч
+        if (Physics2D.Raycast (firePoint.position, transform.up, rayDistance))   // проверил есть ли столкновение
+        {
+            Destroy(raycastHit2D.collider.gameObject);                           // уничтожил обьет с которым столкнулся
+        }
     }
 
-    private void Draw2DRay(Vector2 startPosition, Vector2 endPosition)   // Рисование лазера
+    private void Draw2DRay(Vector2 startPosition, Vector2 endPosition) 
     {
         lineRenderer.SetPosition(0, startPosition);
         lineRenderer.SetPosition(1, endPosition);

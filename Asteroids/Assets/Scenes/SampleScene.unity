@@ -586,9 +586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911e5e949cdffb242a180c6b2cd86f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 50
+  rayDistance: 25
   lineRenderer: {fileID: 7216662496781116428}
-  laserPosition: {fileID: 7216662496174015218}
   bullet: {fileID: 6919974907623972632, guid: d2d3be4646aa0eb44899bca2418bc96b, type: 3}
   firePoint: {fileID: 7216662497034958462}
 --- !u!1 &7216662496781116427
@@ -663,8 +662,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.019607544
-        value: 0.5243912
+        time: 0.014705658
+        value: 0.18292618
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -676,16 +675,16 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.16862741, g: 0.3155107, b: 0.9607843, a: 1}
+      key1: {r: 0.14509802, g: 0.8083448, b: 0.8862745, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
+      ctime0: 12914
+      ctime1: 30262
       ctime2: 0
       ctime3: 0
       ctime4: 0
@@ -821,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7216662497034958463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0003, y: 0.238, z: 0}
+  m_LocalPosition: {x: -0.0003, y: 0.402, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
